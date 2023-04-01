@@ -27,5 +27,20 @@ fi
 if [ -n "$ICECAST_MAX_SOURCES" ]; then
     sed -i "s/<sources>[^<]*<\/sources>/<sources>$ICECAST_MAX_SOURCES<\/sources>/g" /etc/icecast.xml
 fi
+if [ -n "$MASTER_SERVER" ]; then
+    sed -i "s/<master-server>[^<]*<\/master-server>/<master-server>$MASTER_SERVER<\/master-server>/g" /etc/icecast.xml
+fi
+if [ -n "$MASTER_SERVER_PORT" ]; then
+    sed -i "s/<master-server-port>[^<]*<\/master-server-port>/<master-server-port>$MASTER_SERVER_PORT<\/master-server-port>/g" /etc/icecast.xml
+fi
+if [ -n "$MASTER_UPDATE_INTERVAL" ]; then
+    sed -i "s/<master-update-interval>[^<]*<\/master-update-interval>/<master-update-interval>$MASTER_UPDATE_INTERVAL<\/master-update-interval>/g" /etc/icecast.xml
+fi
+if [ -n "$MASTER_PASSWORD" ]; then
+    sed -i "s/<master-password>[^<]*<\/master-password>/<master-password>$MASTER_PASSWORD<\/master-password>/g" /etc/icecast.xml
+fi
+if [ -n "$RELAYS_ON_DEMAND" ]; then
+    sed -i "s/<relays-on-demand>[^<]*<\/relays-on-demand>/<relays-on-demand>$RELAYS_ON_DEMAND<\/relays-on-demand>/g" /etc/icecast.xml
+fi
 
 exec "$@"
