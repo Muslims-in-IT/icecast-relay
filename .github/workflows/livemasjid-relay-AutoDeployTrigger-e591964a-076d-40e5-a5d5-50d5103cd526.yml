@@ -56,5 +56,5 @@ jobs:
         with:
           inlineScript: |
             az config set extension.use_dynamic_install=yes_without_prompt
-            az containerapp registry set -n livemasjid-relay -g livemasjid-rg --server yusufk.azurecr.io --username  ${{ secrets.LIVEMASJIDRELAY_REGISTRY_USERNAME }} --password ${{ secrets.LIVEMASJIDRELAY_REGISTRY_PASSWORD }}
-            az containerapp update -n livemasjid-relay -g livemasjid-rg --image yusufk.azurecr.io/livemasjid-relay:${{ github.sha }}
+            az containerapp registry set -n livemasjid-relay -g jarvis-rg --server yusufk.azurecr.io --username  ${{ secrets.LIVEMASJIDRELAY_REGISTRY_USERNAME }} --password ${{ secrets.LIVEMASJIDRELAY_REGISTRY_PASSWORD }}
+            az containerapp update -n livemasjid-relay -g jarvis-rg --image yusufk.azurecr.io/livemasjid-relay:${{ github.sha }}
