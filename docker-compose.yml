@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  icecast:
+    image: "icecastrelay:latest"
+    container_name: "icecastrelay"
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - "logs:/var/log/icecast"
+    env_file:
+      - ".env"
+volumes:
+  logs:
