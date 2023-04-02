@@ -30,6 +30,13 @@ fi
 if [ -n "$LOG_LEVEL" ]; then
     sed -i "s/<loglevel>[^<]*<\/loglevel>/<loglevel>$LOG_LEVEL<\/loglevel>/g" /etc/icecast.xml
 fi
+# Set error-log and access-log to $ERROR_LOG and $ACCESS_LOG
+if [ -n "$ERROR_LOG" ]; then
+    sed -i "s/<errorlog>[^<]*<\/errorlog>/<errorlog>$ERROR_LOG<\/errorlog>/g" /etc/icecast.xml
+fi
+if [ -n "$ACCESS_LOG" ]; then
+    sed -i "s/<accesslog>[^<]*<\/accesslog>/<accesslog>$ACCESS_LOG<\/accesslog>/g" /etc/icecast.xml
+fi
 
 # Add config to icecast.xml before the end of the file and before the </icecast> tag
 
