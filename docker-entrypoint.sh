@@ -27,6 +27,9 @@ fi
 if [ -n "$ICECAST_MAX_SOURCES" ]; then
     sed -i "s/<sources>[^<]*<\/sources>/<sources>$ICECAST_MAX_SOURCES<\/sources>/g" /etc/icecast.xml
 fi
+if [ -n "$LOG_LEVEL" ]; then
+    sed -i "s/<loglevel>[^<]*<\/loglevel>/<loglevel>$LOG_LEVEL<\/loglevel>/g" /etc/icecast.xml
+fi
 
 # Add config to icecast.xml before the end of the file and before the </icecast> tag
 
